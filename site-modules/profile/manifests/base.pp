@@ -13,8 +13,6 @@ class profile::base {
   content => "Hello world!\n",
 }
 }
- 
-}
 
 
  
