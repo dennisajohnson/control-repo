@@ -10,7 +10,8 @@ class profile::base {
 
 }
 
-#class { 'motd':
- # content => "Hello world!\n",
-#}
-#}
+class { 'motd':
+  content => "Hello world!\n",
+}
+
+ 
