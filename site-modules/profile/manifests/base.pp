@@ -8,6 +8,6 @@
 #   include profile::base
 class profile::base {
   class { 'motd':
-    content => "Hello! TPL are in ${trusted['extensions']['hostname']}.\n"
+    content => "Hello! TPL are in Good Start!.\n"
   }
 }
