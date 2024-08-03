@@ -27,6 +27,4 @@ File { backup => false }
 node default {
   include "role::webserver"
 }
-node 'motd'{
-  include motd
-}
+
