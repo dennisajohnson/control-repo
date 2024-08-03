@@ -8,6 +8,8 @@
 #   include profile::base
 class profile::base {
 
+}
+
 #class { 'motd':
  # content => "Hello world!\n",
 #}
