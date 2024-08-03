@@ -7,7 +7,8 @@
 # @example
 #   include profile::base
 class profile::base {
-  class { 'motd':
-    content => "Hello! TPL are in Good Start!.\n"
-  }
+
+class { 'motd':
+  content => "Hello world!\n",
+}
 }
