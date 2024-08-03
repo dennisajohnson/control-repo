@@ -6,6 +6,7 @@
 #
 # @example
 #   include profile::base
+include motd
 class profile::base {
 
 
