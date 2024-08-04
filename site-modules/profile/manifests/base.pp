@@ -8,10 +8,8 @@
 #   include profile::base
 class profile::base {
   class { 'motd':
-      content => "Hello! You are in the production environment \n"
+      content => "Hello! You are in the ${facts['environment']} environment \n"
   }
 }
-
-
 
  
