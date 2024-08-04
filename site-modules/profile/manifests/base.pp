@@ -6,11 +6,12 @@
 #
 # @example
 #   include profile::base
-class profile::base {      # define
-  class { 'motd':          # declare
-    message => 'Hello! You are in the Production environment \n',
+class profile::base {
+  class { 'motd':
+      content => "Hello! You are in the production environment \n"
   }
 }
+
 
 
  
