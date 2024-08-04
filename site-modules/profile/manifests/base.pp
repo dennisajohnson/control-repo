@@ -8,7 +8,7 @@
 #   include profile::base
 class profile::base {
   class { 'motd':
-      content => "Hello! You are in here! \n"
+      content => "Hello! You are in the development environment \n"
   }
 }
 
