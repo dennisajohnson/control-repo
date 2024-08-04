@@ -8,7 +8,7 @@
 #   include profile::base
 class profile::base {
   class { 'motd':
-      content => "Hello! You are in the development environment ${facts['os']['family']}\n"
+      content => "Hello! You are in the  ${facts['environment'] environment}\n"
   }
 }
 
