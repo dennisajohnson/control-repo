@@ -9,7 +9,7 @@
 class profile::base {      # define
   include ssh              # ensure declared
   class { 'motd':          # declare
-    message => 'welcome',
+    message => 'Hello! You are in the Production environment \n',
   }
 }
 
