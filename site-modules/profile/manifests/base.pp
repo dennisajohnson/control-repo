@@ -6,7 +6,11 @@
 #
 # @example
 #   include profile::base
-class profile::base {
+class profile::base {      # define
+  include ssh              # ensure declared
+  class { 'motd':          # declare
+    message => 'welcome',
+  }
 }
 
 
