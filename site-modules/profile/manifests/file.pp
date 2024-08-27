@@ -1,4 +1,13 @@
-# An example profile
-class profile::example {
-
+# @summary Create temporary file
+#
+# Create temporary file
+#
+# @example
+#   include my_module::my_class
+class my_module::my_class {
+  file { 'c:\hello':
+    ensure  => 'present',
+    content => 'Hello World',
+    path    => 'c:\hello',
+  }
 }
