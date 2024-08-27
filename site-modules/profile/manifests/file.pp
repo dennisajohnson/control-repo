@@ -7,7 +7,7 @@
 class my_module::my_class {
   file { 'c:\hello':
     ensure  => 'present',
-    content => 'Hello World',
+    content => '"Hello! You are in the ${facts['environment']} environment \n"',
     path    => 'c:\hello',
   }
 }
