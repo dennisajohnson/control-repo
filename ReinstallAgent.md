@@ -1,13 +1,15 @@
 # Reinstall Puppet Agent  <br  />
 
-## Show Certname/Servername 
+Show Certname/Servername 
 
-`how puppet certificate name: puppet config print certname`
+`show puppet certificate name: puppet config print certname`
 
 Uninstall puppet agent and reboot 
 
 Remove old puppet files: 
+
 `remove-item C:\ProgramData\PuppetLabs\puppet -Recurse -Confirm:$false`
+
 Purge cert from puppet server: puppet node purge <CERTNAME>
 Reinstall agent with trusted facts
     [Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};
