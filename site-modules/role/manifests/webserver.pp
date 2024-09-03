@@ -3,4 +3,5 @@
 class role::webserver {
   include:: profile::base
   include:: profile::iis
+  include:: profile::example
 }
