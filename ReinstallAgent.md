@@ -1,5 +1,5 @@
 #Reinstall Puppet Agent 
-`Show puppet certificate name: puppet config print certname`
+Show Certname/Servername `Show puppet certificate name: puppet config print certname`
 Uninstall puppet agent and reboot 
 Remove old puppet files: 
 `remove-item C:\ProgramData\PuppetLabs\puppet -Recurse -Confirm:$false`
