@@ -1,8 +1,8 @@
-#Reinstall Puppet Agent  <br  />
+# Reinstall Puppet Agent  <br  />
 
-Show Certname/Servername 
+## Show Certname/Servername 
 
-`Show puppet certificate name: puppet config print certname`
+`how puppet certificate name: puppet config print certname`
 
 Uninstall puppet agent and reboot 
 
