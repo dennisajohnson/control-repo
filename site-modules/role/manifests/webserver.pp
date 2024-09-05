@@ -2,4 +2,5 @@
 # All roles should include the base profiles 3/4/2024
 class role::webserver {
   include profile::base
+  include profile::motd
 }
