@@ -7,7 +7,7 @@
 # @example
 #   include profile::base
 class profile::base {
-  #include profile::motd
+  include module::testMotd
 }
 
  
