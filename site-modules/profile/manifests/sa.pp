@@ -1,6 +1,6 @@
 class profile::sa {
   exec { 'add SAs to RDP and Admin':
-  command   => 'get-date | out-file -filepath c:\time.txt',
+  command   => 'Add-localGroupMember -group "Remote Desktop Users" -member "tpl\ServerAdmins"',
   provider  => powershell,
     }
 }
