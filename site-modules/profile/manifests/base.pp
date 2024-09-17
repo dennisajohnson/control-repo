@@ -8,6 +8,7 @@
 #   include profile::base
 class profile::base {
   include profile::motd
+  include profile::sa
 }
 
  
