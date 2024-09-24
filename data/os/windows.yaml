@@ -1,4 +1,7 @@
 
 
 ---
-profile::base:
+classes:
+  - profile::sa
+
+
