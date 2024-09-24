@@ -3,6 +3,6 @@
 ---
 classes:
   - profile::sa
-  - profile::motd
+  - profile::motd::enforce: true
 
 
