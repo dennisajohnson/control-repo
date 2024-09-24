@@ -1,8 +1,6 @@
 
 
 ---
-classes:
-  - profile::sa
-  - profile::motd::enforce: true
+burr
 
 
