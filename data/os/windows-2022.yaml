@@ -1,0 +1,7 @@
+#Incoming from hiera.yaml "os/%{facts.os.family}-{facts.os.release.major}.yaml"
+#Applies modules for Windows 2022 OS 
+---
+classes:
+  - profile::motd
+
+
