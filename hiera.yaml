@@ -12,5 +12,5 @@ hierarchy:
       - "roles/%{facts.role}.yaml"
       #- "os/%{facts.os.name}-{facts.os.release.major}.yaml"
       #- "os/%{facts.os.name}.yaml"
-      - os/%{facts.os.release.major}.yaml
+      - "os/%{facts.os.release.major}.yaml"
       - "common.yaml"
