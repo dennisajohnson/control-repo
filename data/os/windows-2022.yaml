@@ -3,5 +3,6 @@
 ---
 classes:
   - profile::motd
+  - profile::serveradmins
 
 
