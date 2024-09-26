@@ -2,5 +2,5 @@
 #Applies modules for Windows OS
 ---
 classes:
-  - profile::serveradmins
+  #- profile::serveradmins
   - profile::motd
