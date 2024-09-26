@@ -2,7 +2,7 @@
 #Applies modules for Windows 2022 OS 
 ---
 classes:
-  - profile::motd
+  #- profile::motd
   #- profile::serveradmins
 
 
