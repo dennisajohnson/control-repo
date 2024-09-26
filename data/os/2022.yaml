@@ -1,0 +1,6 @@
+#Incoming from hiera.yaml "os/%{facts.os.family}.yaml"
+#Applies modules for Windows OS
+---
+classes:
+  - profile::serveradmins
+  - profile::motd
