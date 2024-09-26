@@ -11,4 +11,5 @@ hierarchy:
       - "nodes/%{trusted.certname}.yaml"
       - "roles/%{facts.role}.yaml"
       - "os/%{facts.os.name}.yaml"
+      - "os/%{facts.os.family}-{facts.os.release.major}.yaml"
       - "common.yaml"
