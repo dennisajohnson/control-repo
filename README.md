@@ -2,7 +2,7 @@
 
 * [What You Get From This control\-repo](#what-you-get-from-this-control-repo)
 * [Copy This Repo Into Your Own Git Server](#copy-this-repo-into-your-own-git-server)
-  * [GitLab](#gitlab)
+  * [Linux Agent](#gitlab)
   * [Bitbucket/Stash](#bitbucketstash)
   * [Github](#github)
 * [Code Manager Setup](#code-manager-setup)
