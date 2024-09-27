@@ -50,7 +50,7 @@ control-repo/
 
 To get started with using the control-repo template in your own environment and git server, we've provided steps for the three most common servers we see: [GitLab](#gitlab), [BitBucket](#bitbucketstash), and [GitHub](#github).
 
-### GitLab
+### Linux Agent
 
 1. Install GitLab.
     * <https://about.gitlab.com/downloads/>
