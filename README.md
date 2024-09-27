@@ -2,7 +2,7 @@
 
 * [What You Get From This control\-repo](#what-you-get-from-this-control-repo)
 * [Copy This Repo Into Your Own Git Server](#copy-this-repo-into-your-own-git-server)
-  * [Linux Agent](#Linux Agent)
+  * [Linux Agent](#LinuxAgent)
   * [Bitbucket/Stash](#bitbucketstash)
   * [Github](#github)
 * [Code Manager Setup](#code-manager-setup)
@@ -50,7 +50,7 @@ control-repo/
 
 To get started with using the control-repo template in your own environment and git server, we've provided steps for the three most common servers we see: [GitLab](#gitlab), [BitBucket](#bitbucketstash), and [GitHub](#github).
 
-### Linux Agent
+### LinuxAgent
 
 1. Install GitLab.
     * <https://about.gitlab.com/downloads/>
