@@ -60,6 +60,8 @@ To get started with using the control-repo template in your own environment and 
 1. Install RedHat Agent
     * sudo yum install puppet-agent
     * puppet config set server puppetserver.example.com --section main
+    * puppet agent --test
+    * Login to PE console > Certificates and approve the certificate
            
 1. After GitLab is installed you may sign in with the `root` user. If you didn't specify a custom password during installation, a temporary password is located in `/etc/gitlab/initial_root_password`.
 1. Make a user for yourself.
