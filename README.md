@@ -2,7 +2,7 @@
 
 * [What You Get From This control\-repo](#what-you-get-from-this-control-repo)
 * [Copy This Repo Into Your Own Git Server](#copy-this-repo-into-your-own-git-server)
-  * [Linux Agent](#Linux-Agent)
+  * [RedHat Agent](#RedHat-Agent)
   * [Bitbucket/Stash](#bitbucketstash)
   * [Github](#github)
 * [Code Manager Setup](#code-manager-setup)
@@ -50,14 +50,17 @@ control-repo/
 
 To get started with using the control-repo template in your own environment and git server, we've provided steps for the three most common servers we see: [GitLab](#gitlab), [BitBucket](#bitbucketstash), and [GitHub](#github).
 
-### Linux Agent
+### RedHat Agent
 
 1. Set the host/DNS name of the server
     * sudo nano /etc/hosts
-    * 127.0.0.1 hostname hostname.domain.local
-    * 192.168.0.10 hostname hostname.domain.local
-    * hostnamectl set-hostname hostname.domain.local
-     
+    * 127.0.0.1 hostname hostname.example.local
+    * 192.168.0.10 hostname hostname.example.local
+    * hostnamectl set-hostname hostname.example.local
+1. Install RedHat Agent
+    * sudo yum install puppet-agent
+    * puppet config set server puppetserver.example.com --section main
+           
 1. After GitLab is installed you may sign in with the `root` user. If you didn't specify a custom password during installation, a temporary password is located in `/etc/gitlab/initial_root_password`.
 1. Make a user for yourself.
 1. Make an SSH key to link with your user. You’ll want to do this on the machine you intend to edit code from (most likely not your Puppet master, but your local workstation or laptop).
