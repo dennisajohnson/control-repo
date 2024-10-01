@@ -46,9 +46,8 @@ control-repo/
 └── hiera.yaml                            # Hiera's configuration file. The Hiera hierarchy is defined here.
 ```
 
-## Copy This Repo Into Your Own Git Server
+## Puppet Agent Installs
 
-To get started with using the control-repo template in your own environment and git server, we've provided steps for the three most common servers we see: [GitLab](#gitlab), [BitBucket](#bitbucketstash), and [GitHub](#github).
 
 ### RedHat Agent
 
