@@ -20,19 +20,23 @@
 ### RedHat Agent
 
 1. Install RedHat Agent
+    * sudo dnf install https://yum.puppet.com/puppet-release-el-8.noarch.rpm -y or (puppet-release-el-7.noarch.rpm)
     * sudo yum install puppet-agent
     * puppet config set server puppetserver.example.com --section main
     * puppet agent --test
     * Login to PE console > Certificates and approve the certificate
+    * puppet agent --test
   
  ### Ubuntu Agent
 
 1. Install Ubuntu Agent
-     * wget https://apt.puppetlabs.com/puppet8-release-noble.deb
-     * sudo dpkg -i puppet8-release-noble.deb
+     * wget https://apt.puppetlabs.com/puppet8-release-noble.deb or (puppet7-release-noble.deb)
      * sudo apt-get update 
-     * sudo apt-get install puppet-agent 
      * sudo apt install puppet-agent
+     * puppet config set server puppetserver.example.com --section main
+     * puppet agent --test
+     * Login to PE console > Certificates and approve the cert
+     * puppet agent --test  
            
 1. After GitLab is installed you may sign in with the `root` user. If you didn't specify a custom password during installation, a temporary password is located in `/etc/gitlab/initial_root_password`.
 1. Make a user for yourself.
