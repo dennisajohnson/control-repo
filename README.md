@@ -88,6 +88,18 @@ Follow [GitHub's documentation](https://docs.github.com/en/github/creating-cloni
 1. Push the production branch of the repository from your machine up to your git server
     * `git push origin production`
 
-## Code Manager Setup
+## Puppet Patch Management 
 
-If you use Puppet Enterprise see the official [documentation](https://puppet.com/docs/pe/latest/code_mgr.html) for enabling Code Manager.
+1. Create a node group under the PE Patch Management node group.
+   * Parent Name: PE Patch Management
+   * Group  Name: environment_os_patching, e.g. development_redhat_patching
+   * Select the environment
+   * Description: environment_os_patching, e.g. development_redhat_patching
+   * Add the group
+   * Edit the group Create a rule to assign nodes to the node group, e.g. os.family = windows, environment = development, under the rule tab
+   * Commit changes
+   * Under the class tab, add class pe_patch, under the pe_patch class, add the parameter patch_group = development_redhat_patching, commit changes and run puppet at the top left with the defaults
+   * 
+   *  
+
+
