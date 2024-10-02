@@ -13,9 +13,9 @@
 ### Linux Hostname Configuration
 1. Set the host/DNS name of the server
     * sudo nano /etc/hosts
-    * 127.0.0.1 hostname hostname.example.local
+    ** 127.0.0.1 hostname hostname.example.local
     * 192.168.0.10 hostname hostname.example.local
-    * hostnamectl set-hostname hostname.example.local
+    * sudo hostnamectl set-hostname hostname.example.local
 
 ### RedHat Agent
 
