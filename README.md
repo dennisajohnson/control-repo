@@ -36,8 +36,17 @@
      * puppet config set server puppetserver.example.com --section main
      * puppet agent --test
      * Login to PE console > Certificates and approve the cert
-     * puppet agent --test  
-           
+     * puppet agent --test
+  
+1. Install Windows Agent
+     * wget https://apt.puppetlabs.com/puppet8-release-noble.deb or (puppet7-release-noble.deb)
+     * sudo apt-get update 
+     * sudo apt install puppet-agent
+     * puppet config set server puppetserver.example.com --section main
+     * puppet agent --test
+     * Login to PE console > Certificates and approve the cert
+     * puppet agent --test
+              
 1. After GitLab is installed you may sign in with the `root` user. If you didn't specify a custom password during installation, a temporary password is located in `/etc/gitlab/initial_root_password`.
 1. Make a user for yourself.
 1. Make an SSH key to link with your user. You’ll want to do this on the machine you intend to edit code from (most likely not your Puppet master, but your local workstation or laptop).
