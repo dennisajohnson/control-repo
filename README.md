@@ -3,7 +3,7 @@
 * [What You Get From This control\-repo](#what-you-get-from-this-control-repo)
 * [Puppet Agent Install](#Puppet-Agent-Install)
   * [RedHat Agent](#RedHat-Agent)
-  * [Bitbucket/Stash](#bitbucketstash)
+  * [Ubuntu Agent](#Ubuntu-Agent)
   * [Github](#github)
 * [Code Manager Setup](#code-manager-setup)
 
