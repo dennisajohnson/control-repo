@@ -16,6 +16,7 @@
     * 127.0.0.1 hostname hostname.example.local
     * 192.168.0.10 hostname hostname.example.local
     * sudo hostnamectl set-hostname hostname.example.local
+    * Create DNS record in AD-DNS
 
 ### RedHat Agent
 
