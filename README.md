@@ -44,7 +44,6 @@
 1. Install Windows Agent
      * Download: https://downloads.puppetlabs.com/windows/puppet8/puppet-agent-x64-latest.msi 
      * msiexec /qn /norestart /i puppet-agent-x64-latest.msi PUPPET_MASTER_SERVER=puppet.example.com
-     * puppet config set server puppetserver.example.com --section main
      * puppet agent --test
      * Login to PE console > Certificates and approve the cert
      * puppet agent --test
