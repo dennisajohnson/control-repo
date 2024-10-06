@@ -1,4 +1,4 @@
-class enable_rdp {
+class modules::enable_rdp {
 
   exec { 'Enable RDP':
     command => 'powershell.exe -Command "Set-ItemProperty -Path \'HKLM:\\System\\CurrentControlSet\\Control\\Terminal Server\' -Name \'fDenyTSConnections\' -Value 0"',
