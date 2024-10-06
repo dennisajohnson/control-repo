@@ -7,8 +7,8 @@
 # @example
 #   include profile::base
 class profile::base {
-  include profile::motd
-  include profile::sa
+  include module::motd
+  include module::serveradmins
   include module::disable_firewall
 }
 
