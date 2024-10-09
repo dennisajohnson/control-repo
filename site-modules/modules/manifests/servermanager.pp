@@ -1,4 +1,4 @@
-class module::servermanager (
+class modules::servermanager (
   String $servermanager,
 ) {
   exec { 'Check and Disable Scheduled Task':
