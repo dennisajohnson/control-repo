@@ -1,6 +1,9 @@
-class modules::servermanager {
-  exec { 'Disable Server Manager at Login':
-  command   => 'Get-ScheduledTask -TaskName ServerManager | Disable-ScheduledTask',
-  provider  => powershell
-    }
+class modules::servermanager (
+  String $ServerManager,
+) {
+  exec { 'Check and Disable Server Manager Scheduled Task':
+    command => "powershell.exe -Command \"if (Get-ScheduledTask -TaskName '${task_name}') { Disable-ScheduledTask -TaskName '${task_name}'; Write-Output '${task_name} has been disabled.' } else { Write-Output '${task_name} does not exist.' }\"",
+    provider => powershell,
+    onlyif  => "powershell.exe -Command \"if (Get-ScheduledTask -TaskName '${task_name}') { exit 0 } else { exit 1 }\"",
+  }
 }
