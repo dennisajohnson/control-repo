@@ -1,5 +1,5 @@
 class modules::servermanager (
-  String $ServerManager,
+  task_name => 'ServerManager',
 ) {
   exec { 'Check and Disable Server Manager Scheduled Task':
     command => "powershell.exe -Command \"if (Get-ScheduledTask -TaskName '${task_name}') { Disable-ScheduledTask -TaskName '${task_name}'; Write-Output '${task_name} has been disabled.' } else { Write-Output '${task_name} does not exist.' }\"",
