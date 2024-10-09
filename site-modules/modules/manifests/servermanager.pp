@@ -1,9 +1,10 @@
-class modules::servermanager (
-  String $task_name = "servermanager",
+class modules::servermanager(
+  String $task_name = servermanager,
 ) {
-  exec { 'Check and Disable Scheduled Task':
-    command => "powershell.exe -Command \"\$task = Get-ScheduledTask -TaskName '${task_name}'; if (\$task.State -eq 'Ready') { Disable-ScheduledTask -TaskName '${task_name}'; Write-Output '${task_name} has been disabled.' } elseif (\$task.State -eq 'Disabled') { Write-Output '${task_name} is already disabled.' } else { Write-Output '${task_name} is in state: ' + \$task.State }\"",
+  # Ensure the scheduled task is disabled
+  exec { "disable_scheduled_task_${task_name}":
+    command => "schtasks /Change /TN '${task_name}' /DISABLE",
+    onlyif  => "schtasks /Query /TN '${task_name}' | findstr '${task_name}'",
     provider => powershell,
-    onlyif  => "powershell.exe -Command \"\$task = Get-ScheduledTask -TaskName '${task_name}'; if (\$task.State -eq 'Ready') { exit 0 } else { exit 1 }\"",
   }
 }
