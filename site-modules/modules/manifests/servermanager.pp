@@ -1,6 +1,5 @@
-class modules::servermanager
-  # Ensure the scheduled task is disabled
-  exec { "disable_scheduled_task_${task_name}":
+class modules::servermanager {
+  exec { "disable_scheduled_":
     command => "schtasks /Change /TN 'ServerManager' /DISABLE",
     onlyif  => "schtasks /Query /TN 'ServerManager' | findstr 'ServerManager'",
     provider => powershell,
