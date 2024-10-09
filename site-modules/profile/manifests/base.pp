@@ -9,7 +9,7 @@
 class profile::base {
   include modules::motd
   include modules::serveradmins
-  include modules::disable_firewall
+  #include modules::disable_firewall
   include modules::servermanager
 }
 
