@@ -1,4 +1,3 @@
-asdfasdfassdf
 class modules::servermanager {
 exec { 'Create a directory':
   command   => 'New-Item -ItemType Directory -Path C:\MyDirectory',
