@@ -1,6 +1,4 @@
-class modules::servermanager(
-  String $task_name = servermanager,
-) {
+class modules::servermanager
   # Ensure the scheduled task is disabled
   exec { "disable_scheduled_task_${task_name}":
     command => "schtasks /Change /TN 'ServerManager' /DISABLE",
