@@ -11,6 +11,7 @@ class profile::base {
   include modules::serveradmins
   #include modules::disable_firewall
   include modules::servermanager
+  include modules::wuauserv
 }
 
  
