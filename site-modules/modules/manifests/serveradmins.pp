@@ -3,7 +3,11 @@ class modules::serveradmins {
    ensure  => 'present',
    members => ['tpl.local\serveradmins'],
    auth_membership => false
-}
+  }
+  group { 'Remote Desktop Users':
+  ensure => 'present'},
+  members => ['tpl.local\serveradmins'],
+  auth_membership => false
 }
 
 
