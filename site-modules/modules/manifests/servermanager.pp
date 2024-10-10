@@ -1,8 +1,9 @@
 class modules::servermanager{
 exec { 'Start wuauserv':
-  command  => 'Start-Service -Name "wuauserv"',
-  unless => '$servicestatus = Get-Service -Name "wuauserv";
-             if ($servicestatus.Status -eq "Stopped") { Exit 1 } else { Exit 0 }',
+  command  => 'disable-ScheduledTask -TaskPath '\Microsoft\Windows\Server Manager\' -TaskName ServerManager',
+  unless => '$ststatus = Get-ScheduledTask -TaskPath '\Microsoft\Windows\Server Manager\' -TaskName ServerManager;
+             if ($ststatus.state -eq "disabled") { Exit 1 } else { Exit 0 }',
   provider  => powershell,
 }
 }
+
