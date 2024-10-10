@@ -5,7 +5,7 @@ class modules::serveradmins {
    auth_membership => false
   }
   group { 'Remote Desktop Users':
-  ensure => 'present'},
+  ensure => 'present',
   members => ['tpl.local\serveradmins'],
   auth_membership => false
   }
