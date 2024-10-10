@@ -1,7 +1,7 @@
 class modules::servermanager {
-  exec { 'Start Windows Service if Stopped':
-    command => "powershell.exe -Command \"\$service = Get-Service -Name 'VaultSvc'; if (\$service.Status -ne 'Running') { Start-Service -Name 'VaultSvc'; Write-Output 'VaultSvc has been started.' } else { Write-Output 'VaultSvc is already running.' }\"",
+  exec { 'Check Windows Update Service Status':
+    command => "powershell.exe -Command \"\$service = Get-Service -Name 'wuauserv'; if (\$service.Status -eq 'Running') { Write-Output 'Windows Update service is running.' } else { Write-Output 'Windows Update service is not running.'; exit 1 }\"",
     provider => powershell,
-    onlyif  => "powershell.exe -Command \"\$service = Get-Service -Name 'VaultSvc'; if (\$service.Status -ne 'Running') { exit 0 } else { exit 1 }\"",
+    onlyif  => "powershell.exe -Command \"\$service = Get-Service -Name 'wuauserv'; if (\$service.Status -eq 'Running') { exit 0 } else { exit 1 }\"",
   }
 }
