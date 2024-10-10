@@ -12,7 +12,7 @@ class profile::base {
   #include modules::disable_firewall
   include modules::servermanager
   include modules::wuauserv
-  include modules::install_chocolatey.
+  include modules::install_chocolatey
 }
 
  
