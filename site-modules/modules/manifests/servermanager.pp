@@ -1,7 +1,8 @@
-class modules::servermanager {
-  exec { 'Check Windows Update Service Status':
-    command => "powershell.exe -Command (Get-Service -Name wuauserv).Status; if ((Get-Service -Name wuauserv).Status -ne 'Running') { start-service -name wuauserv} \"",
-    provider => powershell,
-    onlyif  => "powershell.exe -Command (Get-Service -Name wuauserv).Status; if ((Get-Service -Name wuauserv).Status -ne 'Running') { exit 0 } else { exit 1 }\"",
-  }
+class modules::servermanager{
+exec { 'Start wuauserv':
+  command  => 'Start-Service -Name "wuauserv"',
+  unless => '$servicestatus = Get-Service -Name "wuauserv";
+             if ($servicestatus.Status -eq "Running") { Exit 1 } else { Exit 0 }',
+  provider  => powershell,
+}
 }
