@@ -1,7 +1,7 @@
 class modules::remove_defender{
 exec { 'remove defender':
   command  => 'Uninstall-WindowsFeature -Name Windows-Defender'
-  unless   => '$dfstatus =  get-WindowsFeature -Name Windows-Defender
+  unless   => '$dfstatus =  get-WindowsFeature -Name Windows-Defender;
              if ($dfstatus.installstate -eq "Installed") { Exit 1 } else { Exit 0 }',
   provider => powershell
 }
