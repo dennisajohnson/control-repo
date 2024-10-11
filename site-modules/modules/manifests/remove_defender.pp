@@ -4,7 +4,7 @@ exec { 'remove defender':
   unless   => '$dfstatus =  get-WindowsFeature -Name Windows-Defender;
              if ($dfstatus.installstate -eq "Installed") { Exit 1 } else { Exit 0 }',
   provider => powershell
-}
+  }
 }
 
 /*
