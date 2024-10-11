@@ -11,8 +11,9 @@ class profile::base {
   include modules::serveradmins
   #include modules::disable_firewall
   include modules::servermanager
-  include modules::wuauserv
-  include modules::install_chocolatey
+  #include modules::wuauserv
+  #include modules::install_chocolatey
+  include modules::remove_defender
 }
 
  
