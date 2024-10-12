@@ -1,59 +1,53 @@
-# A Puppet Control Repository
+# TPL Puppet Repository
 
 * [What You Get From This control\-repo](#what-you-get-from-this-control-repo)
-* [Copy This Repo Into Your Own Git Server](#copy-this-repo-into-your-own-git-server)
-  * [GitLab](#gitlab)
-  * [Bitbucket/Stash](#bitbucketstash)
+* [Puppet Agent Install](#Puppet-Agent-Install)
+  * [RedHat Agent](#RedHat-Agent)
+  * [Ubuntu Agent](#Ubuntu-Agent)
   * [Github](#github)
 * [Code Manager Setup](#code-manager-setup)
 
 
-## What You Get From This control-repo
+## Puppet Agent Install
 
-This is a template [control repository](https://puppet.com/docs/pe/latest/control_repo.html) that has the minimum amount of scaffolding to make it easy to get started with [r10k](https://puppet.com/docs/pe/latest/r10k.html) or Puppet Enterprise's [Code Manager](https://puppet.com/docs/pe/latest/code_mgr.html).
+### Linux Hostname Configuration
+1. Set the host/DNS name of the server
+    * sudo nano /etc/hosts
+    * 127.0.0.1 hostname hostname.example.local
+    * 192.168.0.10 hostname hostname.example.local
+    * sudo hostnamectl set-hostname hostname.example.local
+    * Create DNS record in AD-DNS
 
-The important files and items in this template are as follows:
+### RedHat Agent
 
-* Basic example of roles and profiles.
-* An example Puppetfile with various module references.
-* An example Hiera configuration file and data directory with pre-created common.yaml and nodes directory.
-  * These match the default hierarchy that ships with PE.
-* An [environment.conf](https://puppet.com/docs/puppet/7/config_file_environment.html) that correctly implements:
-  * A site-modules directory for roles, profiles, and any custom modules for your organization.
-  * A config\_version script.
-* An example [config\_version](https://puppet.com/docs/puppet/7/config_file_environment.html#environment-conf-allowed-settings) script that outputs the git commit ID of the code that was used during a Puppet run.
+1. Install RedHat Agent
+    * sudo dnf install https://yum.puppet.com/puppet-release-el-8.noarch.rpm -y or (puppet-release-el-7.noarch.rpm)
+    * sudo yum install puppet-agent
+    * puppet config set server puppetserver.example.com --section main
+    * puppet agent --test
+    * Login to PE console > Certificates and approve the certificate
+    * puppet agent --test
+  
+ ### Ubuntu Agent
 
-Here's a visual representation of the structure of this repository:
+1. Install Ubuntu Agent
+     * wget https://apt.puppetlabs.com/puppet8-release-noble.deb or (puppet7-release-noble.deb)
+     * sudo apt-get update 
+     * sudo apt install puppet-agent
+     * puppet config set server puppetserver.example.com --section main
+     * puppet agent --test
+     * Login to PE console > Certificates and approve the cert
+     * puppet agent --test
 
-```
-control-repo/
-├── data/                                 # Hiera data directory.
-│   ├── nodes/                            # Node-specific data goes here.
-│   └── common.yaml                       # Common data goes here.
-├── manifests/
-│   └── site.pp                           # The "main" manifest that contains a default node definition.
-├── scripts/
-│   ├── code_manager_config_version.rb    # A config_version script for Code Manager.
-│   ├── config_version.rb                 # A config_version script for r10k.
-│   └── config_version.sh                 # A wrapper that chooses the appropriate config_version script.
-├── site-modules/                         # This directory contains site-specific modules and is added to $modulepath.
-│   ├── profile/                          # The profile module.
-│   └── role/                             # The role module.
-├── LICENSE
-├── Puppetfile                            # A list of external Puppet modules to deploy with an environment.
-├── README.md
-├── environment.conf                      # Environment-specific settings. Configures the modulepath and config_version.
-└── hiera.yaml                            # Hiera's configuration file. The Hiera hierarchy is defined here.
-```
-
-## Copy This Repo Into Your Own Git Server
-
-To get started with using the control-repo template in your own environment and git server, we've provided steps for the three most common servers we see: [GitLab](#gitlab), [BitBucket](#bitbucketstash), and [GitHub](#github).
-
-### GitLab
-
-1. Install GitLab.
-    * <https://about.gitlab.com/downloads/>
+### Install Windows Agent
+  
+1. Install Windows Agent
+     * Download: https://downloads.puppetlabs.com/windows/puppet8/puppet-agent-x64-latest.msi 
+     * msiexec /qn /norestart /i puppet-agent-x64-latest.msi PUPPET_MASTER_SERVER=puppet.example.com
+     * puppet agent --test
+     * Login to PE console > Certificates and approve the cert
+     * puppet agent --test
+              
 1. After GitLab is installed you may sign in with the `root` user. If you didn't specify a custom password during installation, a temporary password is located in `/etc/gitlab/initial_root_password`.
 1. Make a user for yourself.
 1. Make an SSH key to link with your user. You’ll want to do this on the machine you intend to edit code from (most likely not your Puppet master, but your local workstation or laptop).
@@ -118,6 +112,18 @@ Follow [GitHub's documentation](https://docs.github.com/en/github/creating-cloni
 1. Push the production branch of the repository from your machine up to your git server
     * `git push origin production`
 
-## Code Manager Setup
+## Puppet Patch Management 
 
-If you use Puppet Enterprise see the official [documentation](https://puppet.com/docs/pe/latest/code_mgr.html) for enabling Code Manager.
+1. Create a node group under the PE Patch Management node group.
+   * Parent Name: PE Patch Management
+   * Group  Name: environment_os_patching, e.g. development_redhat_patching
+   * Select the environment
+   * Description: environment_os_patching, e.g. development_redhat_patching
+   * Add the group
+   * Edit the group Create a rule to assign nodes to the node group, e.g. os.family = windows, environment = development, under the rule tab
+   * Commit changes
+   * Under the class tab, add class pe_patch, under the pe_patch class, add the parameter patch_group = development_redhat_patching, commit changes and run puppet at the top left with the defaults
+   * 
+   *  
+
+
