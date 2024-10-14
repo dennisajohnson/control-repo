@@ -1,6 +1,6 @@
 class modules::motd {
       class { 'motd':
-      content => "Hello! TPL puppling from modules folder \n"
+      content => "Hello! TPL pulling from modules folder \n"
   }
 
 }
